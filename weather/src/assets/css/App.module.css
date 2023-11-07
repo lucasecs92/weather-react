@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+  
+body {
+  background: linear-gradient(180deg, rgb(121, 114, 204) 0%, #8dd0f5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hide {
+  display: none !important;
+}
+
+.container {
+  background-color: #FFC26F;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  color: #fdfdfd;
+  border-radius: 1rem;
+  max-width: 400px;
+}
+

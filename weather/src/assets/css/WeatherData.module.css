@@ -1,0 +1,60 @@
+.weatherData {
+  border-top: 1px solid #fff;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.weatherData h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.weatherData h2 i {
+  font-size: 1.2rem;
+}
+
+.weatherData span {
+  margin: 0.6rem;
+}
+
+.country {
+  height: 20px;
+}
+
+.temperature {
+  font-size: 4rem;
+}
+
+.descriptionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.6rem 0;
+}
+
+.description {
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 0.6rem;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsContainer .humidity {
+  border-right: 1px solid #fff;
+  margin: 0.6rem;
+  padding: 0.6rem;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

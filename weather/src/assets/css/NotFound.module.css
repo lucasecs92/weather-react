@@ -1,0 +1,16 @@
+.notFound {
+    text-align: center;
+    margin: 35px;
+    display: none;
+}
+  
+.notFound img {
+    width: 100%;
+}
+  
+.notFound p {
+    color: #06283D;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+}
