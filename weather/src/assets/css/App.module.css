@@ -12,10 +12,6 @@ body {
   height: 100vh;
 }
 
-.hide {
-  display: none !important;
-}
-
 .container {
   background-color: #FFC26F;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -25,3 +21,143 @@ body {
   max-width: 400px;
 }
 
+
+.form h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}   
+
+.formInputContainer {
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.form input {
+  padding: 0.8rem;
+  border: none;
+  flex: 1;
+  outline: none;
+}
+
+.form button {
+  padding: 0.8rem;
+  min-width: 50px;
+  background-color: #8dd0f5;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.weatherData {
+  border-top: 1px solid #fff;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.weatherData h2 {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+
+.weatherData h2 svg {
+  font-size: 1.2rem;
+}
+
+.weatherData .city {
+  margin: 0.6rem 0.9rem 0.6rem 0.3rem;
+}
+
+.weatherData .country {
+  height: 20px;
+}
+
+.weatherData .temperature {
+  font-size: 4rem;
+}
+
+.weatherData .temperature span {
+  margin: 0.3rem;
+}
+
+.descriptionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsContainer .humidity {
+  border-right: 1px solid #fff;
+  margin: 1rem;
+}
+
+.detailsContainer .humidity span {
+  margin-right: 1rem;
+}
+
+.detailsContainer span {
+  font-size: 0.950rem;
+  margin: 0.6rem;
+}
+
+.detailsContainer .humidity,
+.detailsContainer .wind {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.forecast {
+  padding-top: 2rem;
+}
+
+.forecast .weatherList {
+  list-style-type: none;
+  font-size: 0.8rem;
+}
+
+.forecast .weatherList img {
+  width: 1.6rem;
+}
+
+.forecast .weatherList .list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hide {
+  display: none !important;
+}
+
+.notFoundImg {
+  width: 80%;
+  margin: 30px;
+}
+
+.notFoundP {
+  color: #fdfdfd;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+}
