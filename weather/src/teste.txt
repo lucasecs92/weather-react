@@ -1,110 +1,21 @@
+// App.jsx
+
 import { useState } from "react";
 import styles from './assets/css/App.module.css';
+import { FaDroplet, FaLocationDot, FaWind } from "react-icons/fa6";
 
-import NotFound from "./componentes/NotFound.jsx";
-import SearchBar from "./componentes/SearchBar.jsx";
-import WeatherData from "./componentes/WeatherData.jsx";
-
-const apiKey = "8620c8ae0a772573c0e8c99ca53cf4e6";
-
-const App = () => {
-  const [city, setCity] = useState("");
-  const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(false);
-  const [fourDayForecastData, setFourDayForecastData] = useState(null);
-
-  const handleSearch = async () => {
-    if (city === "") {
-      return;
-    }
-
-    try {
-      const weatherResponse = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`
-      );
-      const weatherData = await weatherResponse.json();
-
-      if (weatherData.cod === "404") {
-        setError(true);
-        setWeatherData(null);
-      } else {
-        setError(false);
-        setWeatherData(weatherData);
-
-        const forecastResponse = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`
-        );
-        const forecastData = await forecastResponse.json();
-
-        // Agrupar previsões por dia
-        const groupedForecasts = forecastData.list.reduce((groups, forecast) => {
-          const date = new Date(forecast.dt * 1000).toDateString();
-          if (!groups[date]) {
-            groups[date] = [];
-          }
-          groups[date].push(forecast);
-          return groups;
-        }, {});
-
-        // Para cada dia, escolha a previsão com a temperatura mais alta e obtenha o ícone correspondente
-        const oneForecastPerDay = Object.values(groupedForecasts).map(forecasts => {
-          return forecasts.reduce((highest, forecast) => {
-            return forecast.main.temp > highest.main.temp ? forecast : highest;
-          });
-        });
-
-        setFourDayForecastData(oneForecastPerDay.slice(0, 4));
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
-
-  return (
-    <section className={styles.container}>
-      <SearchBar
-        city={city}
-        handleSearch={handleSearch}
-        setCity={setCity}
-        handleKeyDown={handleKeyDown}
-      />
-
-      {weatherData && (
-        <WeatherData
-          weatherData={weatherData}
-          fourDayForecastData={fourDayForecastData}
-        />
-      )}
-
-      {error && <NotFound/>}     
-    </section>
-  );
-};
-
-export default App;
-/*
-import { useState } from "react";
-import styles from './assets/css/App.module.css';
-import { FaDroplet, FaLocationDot, FaMagnifyingGlass, FaWind } from "react-icons/fa6";
-
-import Indisponivel from './assets/img/404.png';
+import SearchBar from "./componentes/SearchBar";
 
 const apiKey = "8620c8ae0a772573c0e8c99ca53cf4e6";
 const apiCountryURL = "https://flagcdn.com/w640/";
 
 const App = () => {
-  const [city, setCity] = useState("");
+  const [city] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(false);
+  const [setError] = useState(false);
   const [fourDayForecastData, setFourDayForecastData] = useState(null);
 
-  const handleSearch = async () => {
+  const handleSearch = async () => {   'handleSearch' is assigned a value but never used.
     if (city === "") {
       return;
     }
@@ -151,35 +62,10 @@ const App = () => {
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
 
   return (
     <section className={styles.container}>
-      <section className={styles.form}>
-        <h3>Confira o clima de uma cidade</h3>
-        <section className={styles.formInputContainer}>
-          <input
-            type="text"
-            placeholder="Digite o nome da cidade"
-            className="city-input"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-          <button className="search" onClick={handleSearch}>
-          <FaMagnifyingGlass/>
-          </button>
-        </section>
-      </section>
-
-      <section className={error ? `${styles.notFound}` : `${styles.notFound, styles.hide}`}>
-        <img className={styles.notFoundImg} src={Indisponivel} alt="Not Found" />
-        <p className={styles.notFoundP}>Oops! Localização inválida :/</p>
-      </section>
+      <SearchBar/>
 
       {weatherData && (
         <section className={styles.weatherData}>
@@ -243,5 +129,5 @@ const App = () => {
     </section>
   );
 };
+
 export default App;
-*/

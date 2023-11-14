@@ -1,11 +1,14 @@
-import styles from '../assets/css/NotFound.module.css';
+import Indisponivel from '../assets/img/404.png';
+import styles from '../assets/css/App.module.css';
 
 const NotFound = () => {
   return (
-    <section className={styles.notFound}>
-      <img src="../assets/img/404.png" alt="Not Found" />
-      <p>Oops! Localização inválida :/</p>
-    </section>
+    <>
+      <section className={styles.container}>
+        <img className={styles.notFoundImg} src={Indisponivel} alt="Not Found" />
+        <p className={styles.notFoundP}>Oops! Localização inválida :/</p>
+      </section>
+    </>
   );
 };
 
