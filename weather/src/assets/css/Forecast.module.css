@@ -1,18 +1,20 @@
 .forecast {
-    padding-top: 4rem;
+  padding-top: 2rem;
 }
-  
+
 .forecast .weatherList {
-    list-style-type: none;
-    font-size: 0.8rem;
+  list-style-type: none;
+  font-size: 0.8rem;
 }
-  
-.forecast .weatherList img {
-    width: 1.6rem;
-}
-  
+
 .forecast .weatherList .list {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* text-transform: capitalize; */
+}
+
+.forecast .weatherList 
+.weatherIcon {
+  width: 1.6rem;
 }

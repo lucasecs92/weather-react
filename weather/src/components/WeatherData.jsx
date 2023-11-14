@@ -1,4 +1,4 @@
-import styles from '../assets/css/App.module.css';
+import styles from '../assets/css/WeatherData.module.css';
 import { FaDroplet, FaLocationDot, FaWind } from "react-icons/fa6";
 import PropTypes from 'prop-types';
 import Forecast from './Forecast';
@@ -6,10 +6,12 @@ import Forecast from './Forecast';
 const apiCountryURL = "https://flagcdn.com/w640/";
 
 const WeatherData = ({ weatherData, fourDayForecastData }) => {
+  // Verificando se os dados do clima estão disponíveis
   if (!weatherData) {
     return null;
   }
 
+  // Desestruturando os dados do clima
   const { name, sys, main, weather, wind } = weatherData;
 
   return (
@@ -45,15 +47,19 @@ const WeatherData = ({ weatherData, fourDayForecastData }) => {
         </p>
       </section>
       {fourDayForecastData && (
+        // Renderizando o componente Forecast se os dados de previsão de quatro dias estiverem disponíveis
         <Forecast forecastData={fourDayForecastData} />
       )}
     </section>
   );
 };
 
+// Definindo as propriedades do componente
 WeatherData.propTypes = {
   weatherData: PropTypes.object,
   fourDayForecastData: PropTypes.array,
 };
 
 export default WeatherData;
+
+// Este componente é responsável por exibir os dados do clima atual. Ele recebe duas propriedades: weatherData, que contém os dados do clima atual, e fourDayForecastData, que contém os dados da previsão de quatro dias. O componente verifica se os dados do clima estão disponíveis e, em seguida, desestrutura os dados para obter as informações necessárias, como nome da cidade, país, temperatura, descrição do clima, umidade e velocidade do vento. Ele usa ícones do pacote react-icons/fa6 para exibir ícones relacionados ao clima, e usa o pacote prop-types para verificar se as propriedades weatherData e fourDayForecastData são do tipo correto. Se os dados da previsão de quatro dias estiverem disponíveis, o componente renderiza o componente Forecast para exibir a previsão do tempo para os próximos quatro dias.
