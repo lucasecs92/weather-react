@@ -39,3 +39,6 @@ const App = () => {
 };
 
 export default App;
+
+
+// o weatherData é verificado usando a expressão {weatherData && ...}. Isso significa que se weatherData existir (ou seja, não for nulo ou indefinido), o código dentro do bloco será renderizado.
