@@ -6,10 +6,10 @@ const WeatherForm = ({ city, handleSearch, setCity, handleKeyDown }) => {
   return (
     <section className={styles.form}>
       <h3>Confira o clima de uma cidade</h3>
-      <section className={styles.formInputContainer}>
+      <search className={styles.formInputContainer}>
         <input
-          type="text"
-          placeholder="p. ex. São Paulo, New York..."
+          type="search"
+          placeholder="ex. São Paulo, New York..."
           className={styles.cityInput}
           value={city}
           onChange={(e) => setCity(e.target.value)} // Atualiza o estado da cidade quando o usuário digita
@@ -18,7 +18,7 @@ const WeatherForm = ({ city, handleSearch, setCity, handleKeyDown }) => {
         <button className={styles.search} onClick={handleSearch}> 
           <FaMagnifyingGlass/>
         </button>
-      </section>
+      </search>
     </section>
   );
 };
